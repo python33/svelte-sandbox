@@ -1,0 +1,17 @@
+services:
+  web:
+    build: ./web
+    expose:
+      - 5173
+    volumes:
+      - ./web/src:/app/src
+
+  nginx:
+    image: 'nginx:stable-alpine3.20'
+    volumes:
+      - ./nginx/upstreams.conf:/etc/nginx/upstreams.conf
+      - ./nginx/routing:/etc/nginx/routing
+      - ./nginx/routing/localhost.conf:/etc/nginx/sites/localhost.conf
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 127.0.0.1:5173:5173
