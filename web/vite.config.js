@@ -6,5 +6,13 @@ export default defineConfig({
   hmr: {
       port: 5173,
       polling: true,
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://history-tests.eu.ngrok.io',
+        changeOrigin: true,
+      },
+    },
   }
 });
