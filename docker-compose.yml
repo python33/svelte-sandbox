@@ -22,5 +22,7 @@ services:
       - ./nginx/routing:/etc/nginx/routing
       - ./nginx/routing/localhost.conf:/etc/nginx/sites/localhost.conf
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./api/static:/var/www/static
+      - ./api/media:/var/www/media
     ports:
       - 127.0.0.1:5173:5173
