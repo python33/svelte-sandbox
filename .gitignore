@@ -1,0 +1,15 @@
+*.bak
+*.sw[op]
+*.pyc*
+*.csv
+
+**/__pycache__/*
+
+media/*
+static/*
+static/CACHE/*
+.sass-cache/*
+
+*.sqlite3
+
+.DS_Store

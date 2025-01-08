@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты теста #{{ attempt.id }}</title>
+</head>
+<body>
+    <h1>{{ test.title }}</h1>
+    <p>{{ request.user.first_name }} {{ request.user.last_name }} завершил тест с {{ attempt.started_at }} по {{ attempt.finished_at }}</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Правильные ответы</th>
+            <th>Всего вопросов</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ result.correct_answers }}</td>
+            <td>{{ result.total_questions }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <h2>{{ result.grade }} баллов</h2>
+
+    <a href="{% url 'knowledge_control:list' %}">Вернуться на главную</a>
+</body>
+</html>

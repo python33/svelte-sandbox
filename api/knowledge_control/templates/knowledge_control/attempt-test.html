@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test attempt #{{ attempt.id }}</title>
+</head>
+<body>
+
+{% if question %}
+<p>{{ question.text }}</p>
+<form method="POST" action="{% url 'knowledge_control:answer' test.id %}">
+    {% csrf_token %}
+    {% for row in question.options.all %}
+    <label>
+        <input type="checkbox" name="selected_options" value="{{ row.id }}">
+        {{ row.text }}
+    </label>
+    {% endfor %}
+
+    <button type="submit">Ответить</button>
+</form>
+{% else %}
+<p><a href="{% url 'knowledge_control:finish' test.id attempt.id %}">Завершить тест и получить оценку</a></p>
+{% endif %}
+
+</body>
+</html>

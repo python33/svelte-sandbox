@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test list</title>
+</head>
+<body>
+    <ul>
+        {% for row in tests %}
+        <li><a href="{% url 'knowledge_control:attempt' row.id %}">{{ row.title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -10,7 +10,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://history-tests.eu.ngrok.io',
+        target: 'http://api:8000',
         changeOrigin: true,
       },
     },
