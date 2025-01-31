@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Test, Question, Option
+from .models import Test, Question, Option, Discipline
 
 
 class OptionInline(admin.TabularInline):
@@ -10,6 +10,13 @@ class OptionInline(admin.TabularInline):
 class QuestionInline(admin.TabularInline):
     model = Question
     show_change_link = True
+
+
+
+@admin.register(Discipline)
+class DisciplineAdmin(admin.ModelAdmin):
+    list_display = ['title', 'published']
+    list_filter = ['published']
 
 
 @admin.register(Test)
