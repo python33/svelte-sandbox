@@ -2,6 +2,12 @@ from knowledge_control import models
 from rest_framework import serializers
 
 
+class DisciplineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Discipline
+        fields = '__all__'
+
+
 class TestSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Test

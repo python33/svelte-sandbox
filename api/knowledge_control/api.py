@@ -3,6 +3,13 @@ from rest_framework import generics
 from knowledge_control import models, serializers
 
 
+class DisciplineListView(generics.ListAPIView):
+    serializer_class = serializers.DisciplineSerializer
+
+    def get_queryset(self):
+        return models.Discipline.objects.filter(published=True)
+
+
 class TestListView(generics.ListAPIView):
     serializer_class = serializers.TestSerializer
 
