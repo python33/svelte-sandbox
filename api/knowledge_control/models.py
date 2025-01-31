@@ -2,7 +2,35 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class Discipline(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    published = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title or 'New discipline'
+
+
+class Topic(models.Model):
+    discipline = models.ForeignKey(
+        Discipline,
+        null=True,
+        on_delete=models.SET_NULL)
+
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    published = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title or 'New Topic'
+
+
 class Test(models.Model):
+    topic = models.ForeignKey(
+        Topic,
+        null=True,
+        on_delete=models.SET_NULL)
+
     title = models.CharField(max_length=255)
     description = models.TextField()
     published = models.BooleanField(default=True)
