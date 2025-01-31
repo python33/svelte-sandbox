@@ -14,7 +14,8 @@ class QuestionInline(admin.TabularInline):
 
 @admin.register(Test)
 class TestAdmin(admin.ModelAdmin):
-    list_display = ['title', 'published']
+    list_display = ['title', 'published', 'topic']
+    list_filter = ['topic__discipline', 'published']
     inlines = [QuestionInline]
 
 
